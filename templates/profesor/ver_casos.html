@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casos</title>
+    <style>
+        html,
+        body {
+            height: 90%;
+        }
+
+        body {
+            margin: 0;
+
+            font-family: sans-serif;
+            font-weight: 100;
+        }
+
+        .container {
+            position: absolute;
+            top: 15%;
+            left: 50%;
+            display: block;
+            transform: translate(-50%, -50%);
+            max-width: max-content;
+            max-height: max-content;
+        }
+
+        table {
+            border-collapse: collapse;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(48, 34, 34, 0.326);
+        }
+
+        th {
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.795);
+            color: #ffffff;
+
+        }
+
+        td {
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.795);
+            color: #150e0e;
+            text-align: justify;
+        }
+
+        th {
+            text-align: center;
+        }
+
+        thead th {
+            background-color: #2196F3;
+        }
+
+        tbody tr:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        tbody td {
+            position: relative;
+            text-align: left;
+        }
+
+        tbody td:hover:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: -9999px;
+            bottom: -9999px;
+            background-color: rgba(255, 255, 255, 0.2);
+            z-index: -1;
+        }
+
+        @media screen and (min-width: 768px) {
+
+            /* Only apply these styles on larger screens */
+            table {
+                font-size: 1rem;
+            }
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #e9e9e9;
+        }
+
+        .topnav a {
+            float: left;
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: #2196F3;
+            color: white;
+        }
+
+        .topnav .search-container {
+            float: right;
+        }
+
+        .topnav input[type=text] {
+            padding: 6px;
+            margin-top: 8px;
+            font-size: 17px;
+            border: none;
+        }
+
+        .topnav .search-container button {
+            float: right;
+            padding: 6px 10px;
+            margin-top: 8px;
+            margin-right: 16px;
+            background: #ddd;
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .topnav .search-container button:hover {
+            background: #ccc;
+        }
+
+        @media screen and (max-width: 600px) {
+            .topnav .search-container {
+                float: none;
+            }
+
+            .topnav a,
+            .topnav input[type=text],
+            .topnav .search-container button {
+                float: none;
+                display: block;
+                text-align: left;
+                width: 100%;
+                margin: 0;
+                padding: 14px;
+            }
+
+            .topnav input[type=text] {
+                border: 1px solid #ccc;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="topnav">
+        <a class="active" href="{{ url_for('register_caso') }}">Registrar Caso</a>
+        <a href="{{ url_for('ver_casos') }}">Ver Caso</a>
+        <a href="{{ url_for('logout') }}"> Cerrar sesión</a>
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="container" style="margin-top: 40px ;">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Id caso</th>
+                    <th>Semaforo</th>
+                    <th>Observación</th>
+                    <th>Id Estudiante</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Curso</th>
+                    <th>Edad</th>
+                    <th>Fecha del Caso</th>
+                    <th>Genero</th>
+
+
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    {% for v_casos in v_casos %}
+                    <td>{{v_casos.0}}</td>
+                    <td>{{v_casos.1}}</td>
+                    <td>{{v_casos.2}}</td>
+                    <td>{{v_casos.3}}</td>
+                    <td>{{v_casos.4}}</td>
+                    <td>{{v_casos.5}}</td>
+                    <td>{{v_casos.6}}</td>
+                    <td>{{v_casos.7}}</td>
+                    <td>{{v_casos.8}}</td>
+                    <td>{{v_casos.9}}</td>
+
+
+                </tr>
+
+                {% endfor %}
+
+
+            </tbody>
+    </div>
+</body>
+
+</html>
