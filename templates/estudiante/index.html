@@ -1,11 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    Login est
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Estudiante </title>
+    <div class="menu">
+      <ul>
+        <li><a href="{{url_for('register_caso') }}">Hacer consulta</a></li>
+        <li><a href="{{ url_for('logout') }}">Cerrar Sessión</a></li>
+      </ul>
+    </div>
+    <div class="container">
+      {% if msg %}
+
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{ msg }}
+  
+      </div>
+        
+      {% endif %}
+    </div>
+  </head>
+  <body></body>
 </html>

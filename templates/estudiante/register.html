@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Realizar Consultas</title>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='bootstrap/css/bootstrap.css')}}"
+    />
+  </head>
+  <body class="bg-primary">
+    <div class="row justify-content-center">
+      <div class="col-md-6 pt-3">
+        <h1>Hacer una consulta</h1>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-5">
+          <form class="row g-3 mt-3 pt-3" action="/res_cons" method="POST">
+            <div class="row mb-3 pt-3">
+              <label for="">Elige el docente</label>
+              <select name="profesor" id="profesor">
+                <option value="">Seleccionar</option>
+                {%for profesor in profesor %}
+                <option value="{{profesor.1}}">{{profesor.1}} {{profesor.2}}</option>
+
+                {% endfor %}
+              </select>
+            </div>
+            <div class="row mb-3">
+              <div class="col-10">
+                <label col-2 col-form-label for="modulo">modulo</label>
+                <select name="modulo" id="modulo">
+                  <option value="">Seleccionar</option>
+                  {%for modulo in modulo %}
+                  <option value="{{modulo.2}}">{{modulo.2}}</option>
+
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label class="col-2 col-form-label" for="nombre">Fecha</label>
+              <div class="col-10">
+                <input type="datetime-local" name="fecha" placeholder="fecha" />
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <label class="col-2 col-form-label" for="nombre">consulta</label>
+              <div class="col-10">
+                <input type="text" name="consulta" placeholder="Consulta" />
+              </div>
+            </div>
+
+            <div class="row justify-content-center pt-3">
+              <div class="col-md-6">
+                <input type="submit" value="Hacer consulta" />
+              </div>
+            </div>
+            </form>
+            <div class="row justify-content-center pt-2">
+              <div class="col-md-6">
+                <button type="button">
+                 <a href="/logout">Cerrar sesión</a>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
