@@ -10,9 +10,76 @@
     />
   </head>
   <body class="bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"
+          ><img
+            src="{{ url_for('static', filename='img/logo_iub.jpeg' )}}"
+            alt="logo"
+            style="height: 60px; width: 70px; border-radius:15px"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"
+                >MIS CONSULTAS</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="{{ url_for('register_caso') }}">REALIZAR CONSULTAS</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle active"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                AJUSTES
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">CONFIGURACIÓN</a></li>
+                <li><a class="dropdown-item" href="/logout">CERRAR SESIÓN</a></li>
+                
+              </ul>
+            </li>
+          </ul>
+          <form class="d-flex ms-auto">
+            <input
+              class="d-flex ms-auto"
+              type="search"
+              placeholder="BUSCAR"
+              aria-label="Search"
+            />
+            <button
+              class="btn btn-outline-success"
+              type="submit"
+              style="color: black; border-color: white"
+            >
+              BUSCAR
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <br>
     <div class="row justify-content-center">
       <div class="col-md-6 pt-3">
-        <h1>Hacer una consulta</h1>
+        <center><h1>Hacer una consulta</h1></center>
       </div>
     </div>
 

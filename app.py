@@ -95,6 +95,11 @@ def index_est():
     return render_template('estudiante/index.html')
 
 
+@app.route('/update_profile')
+def update_profile():
+    return render_template('estudiante/update_profile.html')
+
+
 
 @app.route('/login', methods=['POST'])
 def login():
