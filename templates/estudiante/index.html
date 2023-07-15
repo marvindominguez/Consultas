@@ -12,22 +12,32 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-  <style>
-    .navbar .navbar-nav .nav-iten a {
-    padding: 15px;
-}
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='estudiante/css/style.css')}}"
+    />
+    <style>
+      .navbar .navbar-nav .nav-iten a {
+        padding: 15px;
+      }
 
-.navbar .navbar-nav .nav-but {
-    padding: 10px;
-}
+      .navbar .navbar-nav .nav-but {
+        padding: 10px;
+      }
 
-.btn btn-outline-success {
-    color: black;
-    border-color: white;
-}
-
-  </style>
-
+      .btn btn-outline-success {
+        color: black;
+        border-color: white;
+      }
+      table {
+        border-collapse: collapse;
+      }
+      th,
+            td {
+              text-align: center;
+              padding: 15px;
+            }
+    </style>
 
     <title>Index Estudiante</title>
   </head>
@@ -38,7 +48,7 @@
           ><img
             src="{{ url_for('static', filename='img/logo_iub.jpeg' )}}"
             alt="logo"
-            style="height: 60px; width: 70px; border-radius:15px"
+            style="height: 60px; width: 70px; border-radius: 15px"
         /></a>
         <button
           class="navbar-toggler"
@@ -51,6 +61,7 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
@@ -59,7 +70,9 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="{{ url_for('register_caso') }}">REALIZAR CONSULTAS</a>
+              <a class="nav-link active" href="{{ url_for('register_caso') }}"
+                >REALIZAR CONSULTAS</a
+              >
             </li>
 
             <li class="nav-item dropdown">
@@ -75,8 +88,9 @@
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="">CONFIGURACIÓN</a></li>
-                <li><a class="dropdown-item" href="/logout">CERRAR SESIÓN</a></li>
-                
+                <li>
+                  <a class="dropdown-item" href="/logout">CERRAR SESIÓN</a>
+                </li>
               </ul>
             </li>
           </ul>
@@ -98,6 +112,53 @@
         </div>
       </div>
     </nav>
+    <br /><br /><br />
+    <section class="ftco-section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-6 text-center mb-5">
+            <h2 class="heading-section">MIS CONSULTAS</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="table-wrap">
+              <table class="table">
+                <thead class="thead-primary">
+                  <tr>
+                    <th>NOMBRES</th>
+                    <!-- <th>APELLIDOS</th> -->
+                    <th>TIPO DE DOCUMENTO</th>
+                    <th>NUMERO DE DOCUMENTO</th>
+                    <th>PROGRAMA</th>
+                    <th>CORREO INSTITUCIONAL</th>
+                    <th>PROFESOR</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for modulo in modulo %}
+
+                  <tr>
+                    <td>{{modulo.0}} {{modulo.1}} </td>
+
+                    
+                    <td>{{modulo.2}}</td>
+                    <td>{{modulo.3}}</td> <!--Numero de doc est! -->
+                    <td>{{modulo.7}}</td>
+                    <td>{{modulo.5}}</td>
+                    <td>{{modulo.4}}</td>
+                    
+                    
+                  
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script

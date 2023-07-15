@@ -92,7 +92,12 @@ def register_caso():
     
 @app.route('/index_est')
 def index_est():
-    return render_template('estudiante/index.html')
+    id = session['id']
+    print(id)
+    cursor = mysql.connection.cursor()
+    cursor.execute('SELECT estudiante.nombre AS nombre_estudiante, estudiante.apellido AS apellido_estudiante, estudiante.tipo_documento, estudiante.numero_estudiante, profesor.nombre AS nombre_profesor, estudiante.correo, modulo.nombre_modulo, estudiante.programa FROM estudiante INNER JOIN consulta ON estudiante.id = consulta.id_estudiante INNER JOIN profesor ON profesor.id = consulta.id_profesor INNER JOIN modulo ON modulo.id_modulo = consulta.id_modulo WHERE id_estudiante=%s',(id,))
+    modulo = cursor.fetchall()
+    return render_template('estudiante/index.html', modulo = modulo)
 
 
 @app.route('/update_profile')
