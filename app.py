@@ -163,10 +163,11 @@ def login_estu():
             session['nombre'] = user[1]
             session['apellido'] = user[2]
             session['correo'] = user[5]
-
             id = session['id']
             print(id)
             return redirect(url_for('index_est'))
+            
+            
         else:
             msg = 'Los datos ingresados son incorrectos'
             return render_template('estudiante/login.html', msg=msg)
